@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "EduTrack Classroom API",
+    "description": "Postman API test suite for Student & Teacher Assignment Hub, Tests, and Announcements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Assignments",
+      "item": [
+        {
+          "name": "Get All Assignments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/assignments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "assignments"]
+            }
+          }
+        },
+        {
+          "name": "Filter Assignments By Subject",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/assignments?subject=Math",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "assignments"],
+              "query": [{ "key": "subject", "value": "Math" }]
+            }
+          }
+        },
+        {
+          "name": "Create Assignment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"Math\",\n  \"title\": \"Chapter 5 Trigonometry Problem Set\",\n  \"dueDate\": \"2026-11-25\",\n  \"priority\": \"High\",\n  \"description\": \"Complete review questions 1-20\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/assignments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "assignments"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subjects",
+      "item": [
+        {
+          "name": "Get Subjects",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subjects",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subjects"]
+            }
+          }
+        },
+        {
+          "name": "Create Subject",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Computer Science\",\n  \"code\": \"CS101\",\n  \"color\": \"#3b82f6\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subjects",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subjects"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tests",
+      "item": [
+        {
+          "name": "Get Tests",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/tests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tests"]
+            }
+          }
+        },
+        {
+          "name": "Schedule Test",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"Science\",\n  \"title\": \"Midterm Physics Exam\",\n  \"testDate\": \"2026-12-01T10:00:00\",\n  \"durationMinutes\": 90,\n  \"maxMarks\": 100,\n  \"syllabus\": \"Thermodynamics and Optics\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tests"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Announcements",
+      "item": [
+        {
+          "name": "Get Announcements",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/announcements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "announcements"]
+            }
+          }
+        },
+        {
+          "name": "Post Announcement",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Semester Project Submission Guidelines\",\n  \"content\": \"Please ensure your code is pushed to your repositories before Friday midnight.\",\n  \"subject\": \"Computer Science\",\n  \"isPinned\": true,\n  \"author\": \"Prof. Davis\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/announcements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "announcements"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
